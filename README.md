@@ -41,12 +41,12 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
 
 ```json
     Usuario {
-        id_user:
-        nome_user:
-        sobrenome_user:
-        email:
-        senha:
-        saldo_total:
+        id_user:1
+        nome_user:"Nome Usuario"
+        sobrenome_user:"Sobre Nome"
+        email:"examplo@examplo.com"
+        senha:"123LKhjya"
+        saldo_total:12354.55
     }
 ```
 
@@ -55,10 +55,10 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
 
 ```json
     Conta{
-        id_conta:
-        nome_banco:
-        saldo_banco:
-        id_user:
+        id_conta:01
+        nome_banco:"NuBank"
+        saldo_banco:5425.40
+        id_user:1
     }
 ```
 
@@ -67,12 +67,12 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
 
 ```json
     Despesas{
-        id_despesa:
-        nome_despesa:
-        tipo_despesa:
-        valor_despesa:
-        id_conta:
-        id_user:
+        id_despesa:0001
+        nome_despesa:"Hot-Dog"
+        tipo_despesa:"Alimentos"
+        valor_despesa:12.99
+        id_conta:01
+        id_user:1
     }
 ```
 
@@ -81,12 +81,12 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
 
 ```json
     Renda{
-        id_renda:
-        nome_renda:
-        tipo_renda:
-        valor_renda:
-        id_conta:
-        id_user:
+        id_renda:00001
+        nome_renda:"Salario Site"
+        tipo_renda:"Salario"
+        valor_renda:3200.00
+        id_conta:01
+        id_user:1
     }
 ```
 
@@ -95,12 +95,12 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
 
 ```json
     Orçamentos{
-        id_orcamento:
-        nome_orcamento:
-        limite_orcamento:
-        valor_orcamento:
-        categoria_orcamento:
-        id_user:
+        id_orcamento:000001
+        nome_orcamento:"Entrerterimento"
+        limite_orcamento:700.00
+        valor_orcamento:50.00
+        categoria_orcamento:"Entrerterimento"
+        id_user:1
     }
 ```
 
@@ -109,10 +109,10 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
 
 ```json
     Categorias{
-        id_categoria:
-        nome_categoria:
-        tipo_categoria:
-        id_user:
+        id_categoria:10001
+        nome_categoria:"Entrerterimento"
+        tipo_categoria:"Despesa"
+        id_user:1
     }
 ```
 
@@ -121,10 +121,10 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
 
 ```json
     Objetivo{
-        id_objetivo:
-        nome_objetivo:
-        valortotal_objetivo:
-        valor_objetivo:
-        id_user:
+        id_objetivo:10024
+        nome_objetivo:"Carro"
+        valortotal_objetivo:25000.00
+        valor_objetivo:5768.00
+        id_user:1
     }
 ```
