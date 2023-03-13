@@ -39,7 +39,7 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     - Usuario
         Possibilidade de Fazer logins e Cadastros.
 
-```json
+```s
     Usuario {
         id_user:1
         nome_user:"Nome Usuario"
@@ -53,7 +53,7 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     - Conta
         Adicionar contas bancarias para salvar saldos.
 
-```json
+```s
     Conta{
         id_conta:01
         nome_banco:"NuBank"
@@ -65,7 +65,7 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     - Despesas
         Adicionar despesas e relacionar elas com contas bancarias criadas.
 
-```json
+```s
     Despesas{
         id_despesa:0001
         nome_despesa:"Hot-Dog"
@@ -79,7 +79,7 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     - Renda
         Adicionar renda e relacionar com contas bancarias criadas.
 
-```json
+```s
     Renda{
         id_renda:00001
         nome_renda:"Salario Site"
@@ -93,7 +93,7 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     - Orçamentos
         Criar orçamentos com limites especificos e avisar quando estiver perto de esgotar.
 
-```json
+```s
     Orçamentos{
         id_orcamento:000001
         nome_orcamento:"Entrerterimento"
@@ -107,7 +107,7 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     - Categorias
         Criar Categorias personalizadas para despesas e renda.
 
-```json
+```s
     Categorias{
         id_categoria:10001
         nome_categoria:"Entrerterimento"
@@ -119,7 +119,7 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     - Obejetivo
         Criar objetivos financeiros, com foco em guardar dinheiro para futuros planejamentos.
 
-```json
+```s
     Objetivo{
         id_objetivo:10024
         nome_objetivo:"Carro"
