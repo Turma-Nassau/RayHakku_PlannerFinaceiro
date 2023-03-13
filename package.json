@@ -1,0 +1,24 @@
+{
+  "name": "rayhakku_plannerfinaceiro",
+  "version": "1.0.0",
+  "description": "API Para o Site de Planner Finaceiro",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "API",
+    "Server",
+    "Planner",
+    "Financeiro"
+  ],
+  "author": "RayHakky",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
