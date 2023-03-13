@@ -36,8 +36,8 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
 
 ## Estrutura de Dados
 
-    - Usuario
-        Possibilidade de Fazer logins e Cadastros.
+- Usuario
+  Possibilidade de Fazer logins e Cadastros.
 
 ```s
     Usuario {
@@ -50,8 +50,8 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     }
 ```
 
-    - Conta
-        Adicionar contas bancarias para salvar saldos.
+- Conta
+  Adicionar contas bancarias para salvar saldos.
 
 ```s
     Conta{
@@ -62,8 +62,8 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     }
 ```
 
-    - Despesas
-        Adicionar despesas e relacionar elas com contas bancarias criadas.
+- Despesas
+  Adicionar despesas e relacionar elas com contas bancarias criadas.
 
 ```s
     Despesas{
@@ -76,8 +76,8 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     }
 ```
 
-    - Renda
-        Adicionar renda e relacionar com contas bancarias criadas.
+- Renda
+  Adicionar renda e relacionar com contas bancarias criadas.
 
 ```s
     Renda{
@@ -90,8 +90,8 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     }
 ```
 
-    - Orçamentos
-        Criar orçamentos com limites especificos e avisar quando estiver perto de esgotar.
+- Orçamentos
+  Criar orçamentos com limites especificos e avisar quando estiver perto de esgotar.
 
 ```s
     Orçamentos{
@@ -104,8 +104,8 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     }
 ```
 
-    - Categorias
-        Criar Categorias personalizadas para despesas e renda.
+- Categorias
+  Criar Categorias personalizadas para despesas e renda.
 
 ```s
     Categorias{
@@ -116,8 +116,8 @@ ira ser permitido ao usuario adicionar e gerenciar sua renda e despesas, criar o
     }
 ```
 
-    - Obejetivo
-        Criar objetivos financeiros, com foco em guardar dinheiro para futuros planejamentos.
+- Obejetivo
+  Criar objetivos financeiros, com foco em guardar dinheiro para futuros planejamentos.
 
 ```s
     Objetivo{
