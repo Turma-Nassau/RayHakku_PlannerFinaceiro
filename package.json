@@ -91,6 +91,7 @@
     "vary": "^1.1.2"
   },
   "scripts": {
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
