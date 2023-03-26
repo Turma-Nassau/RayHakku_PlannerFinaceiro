@@ -5,6 +5,8 @@ const { urlencoded } = require('body-parser');
 const fs = require('fs')
 var PORT = 8000;
 
+app.use(logger)
+
 app.use(bodyParser.json())
 
 app.use(bodyParser.urlencoded({
@@ -30,5 +32,3 @@ function logger(request, response, next) {
     })
     next()
 }
-
-app.use(logger)
