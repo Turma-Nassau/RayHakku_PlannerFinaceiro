@@ -8,11 +8,11 @@ const Renda = Sequelize.define("renda", {
         primaryKey: true
     },
     nomeRenda: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(15),
         allowNull: false
     },
     tipoRenda: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(15),
         allowNull: false
     },
     valorRenda: {

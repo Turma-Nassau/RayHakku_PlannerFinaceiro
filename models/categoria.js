@@ -1,25 +1,18 @@
 const Sequelize = require("sequelize")
 
-const Despesa = Sequelize.define("despesa", {
+const Categoria = Sequelize.define("categoria", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    nomeDepesas: {
-        type: Sequelize.STRING(15),
-        allowNull: false,
-    },
-    tipoDespesas: {
+    nomeCategoria: {
         type: Sequelize.STRING(15),
         allowNull: false
     },
-    valorDespesas: {
-        type: Sequelize.DOUBLE,
-        validate: {
-            isNumeric: true,
-        },
+    tipoCategoria: {
+        type: Sequelize.STRING(10),
         allowNull: false
     }
 })
