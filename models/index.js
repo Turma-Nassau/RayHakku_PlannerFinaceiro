@@ -40,12 +40,12 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.usuario = require("./usuario")(sequelize, sequelize);
-db.conta = require("./conta")(sequelize, sequelize);
+db.usuarios = require("./usuario")(sequelize, sequelize);
+db.contas = require("./conta")(sequelize, sequelize);
 
-db.usuario.hasMany(db.conta, { as: "Contas" });
-db.conta.belongsTo(db.usuario, {
-  foreignKey: "user_id",
+db.usuarios.hasMany(db.contas, { as: "contas" });
+db.contas.belongsTo(db.usuarios, {
+  foreignKey: "userId",
   as: "usuario"
 });
 

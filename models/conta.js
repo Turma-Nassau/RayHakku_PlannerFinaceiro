@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-const Conta = Sequelize.define("Conta", {
+const Conta = Sequelize.define("conta", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
