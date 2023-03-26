@@ -38,3 +38,4 @@ const Usuario = Sequelize.define("usuario", {
         }
     }
 })
+
