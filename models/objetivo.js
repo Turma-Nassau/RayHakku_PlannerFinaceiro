@@ -1,17 +1,17 @@
 const Sequelize = require("sequelize")
 
-const Orcamento = Sequelize.define("orcamento", {
+const Objetivo = Sequelize.define("objetivo", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    nomeOrcamento: {
+    nomeObjetivo: {
         type: Sequelize.STRING(20),
         allowNull: false
     },
-    limiteOrcamento: {
+    valorTotal: {
         type: Sequelize.DOUBLE,
         allowNull: false,
         validate: {
@@ -19,16 +19,12 @@ const Orcamento = Sequelize.define("orcamento", {
             min: 1
         }
     },
-    valorOrcamento: {
+    valorAtual: {
         type: Sequelize.DOUBLE,
         allowNull: true,
         validate: {
             isNumeric: true
         },
         defaultValue: 0
-    },
-    categoria: {
-        type: Sequelize.STRING(15),
-        allowNull: false
     }
 })
