@@ -3,26 +3,43 @@ const app = express();
 const bodyParser = require('body-parser');
 const { urlencoded } = require('body-parser');
 const fs = require('fs')
+const { sequelize } = require('./models')
 var PORT = 8000;
 
 app.use(logger)
 
-app.use(bodyParser.json())
+const connectDB = async () => {
+    console.log('Checando conexao com banco de dados');
+    try {
+        await sequelize.authenticate();
+        console.log('Banco de dados Conectado');
+    }
+    catch (e) {
+        console.log('Conexao falhou', e);
+        process.exit(1)
+    }
+}
 
-app.use(bodyParser.urlencoded({
-    extended: true,
-}))
+(async () => {
+    await connectDB();
+    app.use(bodyParser.json())
 
-app.get('/', (request, response) => {
-    response.json({
-        info: `Root OK`
+    app.use(bodyParser.urlencoded({
+        extended: true,
+    }))
+
+    app.get('/', (request, response) => {
+        response.json({
+            info: `Root OK`
+        })
     })
-})
 
-app.listen(PORT, () => {
-    console.log(`Rodando na Porta ${PORT}.`)
-})
+    app.listen(PORT, () => {
+        console.log(`Rodando na Porta ${PORT}.`)
+    })
 
+
+})()
 
 function logger(request, response, next) {
     let log = `${new Date()}, ${request.method}, ${request.url}, ${request.body} \n`;
@@ -32,3 +49,4 @@ function logger(request, response, next) {
     })
     next()
 }
+

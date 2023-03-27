@@ -1,25 +1,37 @@
-const Sequelize = require("sequelize")
-
-const Renda = Sequelize.define("renda", {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },
-    nomeRenda: {
-        type: Sequelize.STRING(15),
-        allowNull: false
-    },
-    tipoRenda: {
-        type: Sequelize.STRING(15),
-        allowNull: false
-    },
-    valorRenda: {
-        type: Sequelize.DOUBLE,
-        validate: {
-            isNumeric: true
-        },
-        allowNull: false
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Renda extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-})
+  }
+  Renda.init({
+    nome_renda: {
+      type: DataTypes.STRING(15),
+      allowNull: false
+    },
+    tipo_renda: {
+      type: DataTypes.STRING(15),
+      allowNull: false
+    },
+    valor_renda: {
+      type: DataTypes.DOUBLE,
+      validate: {
+        isNumeric: true
+      },
+      allowNull: false
+    }
+  }, {
+    sequelize,
+    modelName: 'Renda',
+  });
+  return Renda;
+};

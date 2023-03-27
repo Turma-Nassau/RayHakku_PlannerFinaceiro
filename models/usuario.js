@@ -1,41 +1,59 @@
-const Sequelize = require("sequelize")
-
-const Usuario = Sequelize.define("usuario", {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Usuario extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      Usuario.associate = function (models) {
+        Usuario.hasMany(models.conta, {
+          foreignKey: 'usuario_id',
+          as: 'contas',
+          onDelete: 'CASCADE'
+        })
+      }
+    }
+  }
+  Usuario.init({
     nome: {
-        type: Sequelize.STRING(15),
-        allowNull: false
+      type: DataTypes.STRING(15),
+      allowNull: false
     },
     sobrenome: {
-        type: Sequelize.STRING(30),
-        allowNull: false
+      type: DataTypes.STRING(30),
+      allowNull: false
     },
-    email: {
-        type: Sequelize.STRING(40),
-        allowNull: false,
-        unique: true,
-        validate: {
-            isEmail: true
-        }
+    emai: {
+      type: DataTypes.STRING(40),
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true
+      }
     },
     senha: {
-        type: Sequelize.STRING(20),
-        allowNull: false,
-        validate: {
-            len: [8, 20]
-        }
+      type: DataTypes.STRING(20),
+      allowNull: false,
+      validate: {
+        len: [8, 20]
+      }
     },
-    saldo_total: {
-        type: Sequelize.DOUBLE,
-        validate: {
-            isNumeric: true,
-            min: 0
-        }
+    salto_total: {
+      type: DataTypes.DOUBLE,
+      validate: {
+        isNumeric: true,
+        min: 0
+      }
     }
-})
-
+  }, {
+    sequelize,
+    modelName: 'Usuario',
+  });
+  return Usuario;
+};

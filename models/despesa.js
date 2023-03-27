@@ -1,25 +1,37 @@
-const Sequelize = require("sequelize")
-
-const Despesa = Sequelize.define("despesa", {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },
-    nomeDepesas: {
-        type: Sequelize.STRING(15),
-        allowNull: false,
-    },
-    tipoDespesas: {
-        type: Sequelize.STRING(15),
-        allowNull: false
-    },
-    valorDespesas: {
-        type: Sequelize.DOUBLE,
-        validate: {
-            isNumeric: true,
-        },
-        allowNull: false
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Despesa extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-})
+  }
+  Despesa.init({
+    nome_despesa: {
+      type: DataTypes.STRING(15),
+      allowNull: false,
+    },
+    tipo_despesa: {
+      type: DataTypes.STRING(15),
+      allowNull: false
+    },
+    valor_despesa: {
+      type: DataTypes.DOUBLE,
+      validate: {
+        isNumeric: true,
+      },
+      allowNull: false
+    }
+  }, {
+    sequelize,
+    modelName: 'Despesa',
+  });
+  return Despesa;
+};
