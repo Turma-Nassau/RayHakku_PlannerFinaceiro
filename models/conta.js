@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Conta.associate = (models) => {
-        Conta.belongsTo(models.Usuario, {
+        Conta.belongsTo(models.usuario, {
           foreignKey: 'usuario_id',
           as: 'usuario',
           onDelete: 'CASCADE'
