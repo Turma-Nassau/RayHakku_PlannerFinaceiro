@@ -1,10 +1,21 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
-const { urlencoded } = require('body-parser');
+
+
 const fs = require('fs')
-const { sequelize } = require('./models')
 var PORT = 8000;
+const bodyParser = require('body-parser');
+
+
+const userRoutes = require('./routes/userRoutes')
+const rendaRoutes = require('./routes/rendaRoutes')
+const contaRoutes = require('./routes/conta')
+const categoriaRoutes = require('./routes/categoria')
+const despesasRoutes = require('./routes/despesas')
+const objetivoRoutes = require('./routes/objetivo')
+const orcamentoRoutes = require('./routes/orcamento')
+const { sequelize } = require('./models')
+
 
 app.use(logger)
 
@@ -28,16 +39,17 @@ const connectDB = async () => {
         extended: true,
     }))
 
-    app.get('/', (request, response) => {
-        response.json({
-            info: `Root OK`
-        })
-    })
+    app.use('/api/users', userRoutes);
+    app.use('/api/renda', rendaRoutes);
+    app.use('/api/conta', contaRoutes);
+    app.use('/api/categoria', categoriaRoutes);
+    app.use('/api/despesa', despesasRoutes);
+    app.use('/api/objetivo', objetivoRoutes);
+    app.use('/api/orcamento', orcamentoRoutes);
 
     app.listen(PORT, () => {
         console.log(`Rodando na Porta ${PORT}.`)
     })
-
 
 })()
 
