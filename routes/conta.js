@@ -19,6 +19,12 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/saldo/:id', (req, res) => {
+    res.json({
+        info: 'get saldo by id OK!'
+    })
+})
+
 router.post('/', (req, res) => {
     res.json({
         info: 'post conta OK!'

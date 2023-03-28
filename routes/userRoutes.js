@@ -22,5 +22,11 @@ router.delete('/:id', (req, res) => res.json({
     info: 'delete users by id OK!'
 }))
 
+router.get('/saldo/:id', (req, res) => {
+    res.json({
+        info: 'get saldo by user OK!'
+    })
+})
+
 
 module.exports = router;
