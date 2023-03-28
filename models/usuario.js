@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(30),
       allowNull: false
     },
-    emai: {
+    email: {
       type: DataTypes.STRING(40),
       allowNull: false,
       unique: true,

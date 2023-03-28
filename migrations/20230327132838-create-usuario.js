@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING(30),
         allowNull: false
       },
-      emai: {
+      email: {
         type: Sequelize.STRING(40),
         allowNull: false,
         unique: true,

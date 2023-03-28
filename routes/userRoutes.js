@@ -3,7 +3,7 @@ const usercontroller = require('../controllers/userController');
 const router = Router();
 
 
-router.post('/', );
+router.post('/', usercontroller.criarUsuario );
 
 router.get('/', (req, res) => res.json({
     info: 'get users OK!'

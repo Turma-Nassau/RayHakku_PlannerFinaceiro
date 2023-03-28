@@ -1,19 +1,25 @@
-const usuario = require('../models').usuario;
+const Sequelize=require('sequelize');
+const { sequelize } = require('../models');
+const userModel = require('../models/usuario')(sequelize, Sequelize.DataTypes, Sequelize.Model);
 
-exports.criarUsuario = async (req, res) => {
-
+exports.criarUsuario =  (req, res) => {
+   console.log('POST');
     console.log(req.body);
-    await usuario.create({
+    userModel.create({
         nome: req.body.nome,
         sobrenome: req.body.sobrenome,
-        emai: req.body.email,
-        senha: req.body.senha
-    }).then(usuario => {
+        email: req.body.email,
+        senha: req.body.senha,
+    }).then((result) => {
         res.status(201).json({
-            usuario,
+            message: "Usuário criado com sucesso!",
+            user: result
         });
-    }).catch(err => {
-        res.status(404).send("Error -> " + err);
-    })
+    }).catch((err) => {
+        res.status(500).json({
+            message: "Erro ao criar usuário",
+            error: err
+        });
+    });
 }
 
