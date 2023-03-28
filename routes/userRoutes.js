@@ -2,10 +2,6 @@ const { Router } = require('express');
 const router = Router();
 
 
-router.get('/', (req, res) => res.json({
-    info: 'OK!'
-}))
-
 router.post('/users', (req, res) => res.json({
     info: 'post / create users OK!'
 }))

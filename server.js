@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const routes = require('./routes/routes')
+const routes = require('./routes/userRoutes')
 const bodyParser = require('body-parser');
 const fs = require('fs')
 const { sequelize } = require('./models')
@@ -28,7 +28,7 @@ const connectDB = async () => {
         extended: true,
     }))
 
-    app.use('/api', routes);
+    app.use('/', routes);
 
     app.listen(PORT, () => {
         console.log(`Rodando na Porta ${PORT}.`)
