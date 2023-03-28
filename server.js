@@ -1,10 +1,16 @@
 const express = require('express');
 const app = express();
-const routes = require('./routes/userRoutes')
-const bodyParser = require('body-parser');
+
+
 const fs = require('fs')
-const { sequelize } = require('./models')
 var PORT = 8000;
+const bodyParser = require('body-parser');
+
+
+const userRoutes = require('./routes/userRoutes')
+const rendaRoutes = require('./routes/rendaRoutes')
+const { sequelize } = require('./models')
+
 
 app.use(logger)
 
@@ -28,12 +34,12 @@ const connectDB = async () => {
         extended: true,
     }))
 
-    app.use('/', routes);
+    app.use('/api/users', userRoutes);
+    app.use('/api/renda', rendaRoutes);
 
     app.listen(PORT, () => {
         console.log(`Rodando na Porta ${PORT}.`)
     })
-
 
 })()
 

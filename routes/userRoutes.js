@@ -2,23 +2,23 @@ const { Router } = require('express');
 const router = Router();
 
 
-router.post('/users', (req, res) => res.json({
+router.post('/', (req, res) => res.json({
     info: 'post / create users OK!'
 }))
 
-router.get('/users', (req, res) => res.json({
+router.get('/', (req, res) => res.json({
     info: 'get users OK!'
 }))
 
-router.get('/users/:id', (req, res) => res.json({
+router.get('/:id', (req, res) => res.json({
     info: 'get users by id OK!'
 }))
 
-router.patch('/users/:id', (req, res) => res.json({
+router.patch('/:id', (req, res) => res.json({
     info: 'patch / update users by id OK!'
 }))
 
-router.delete('/users/:id', (req, res) => res.json({
+router.delete('/:id', (req, res) => res.json({
     info: 'delete users by id OK!'
 }))
 
