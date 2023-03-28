@@ -1,14 +1,19 @@
-const models = require('../models');
+const usuario = require('../models').usuario;
 
-exports.createUser = async (req, res) => {
-    try {
-        const usuario = await models.Usuario.create(req.body);
-        return res.status(201).json({
+exports.criarUsuario = async (req, res) => {
+
+    console.log(req.body);
+    await usuario.create({
+        nome: req.body.nome,
+        sobrenome: req.body.sobrenome,
+        emai: req.body.email,
+        senha: req.body.senha
+    }).then(usuario => {
+        res.status(201).json({
             usuario,
         });
-    } catch (e) {
-        return res.status(500).json({
-            error: error.message
-        })
-    }
+    }).catch(err => {
+        res.status(404).send("Error -> " + err);
+    })
 }
+

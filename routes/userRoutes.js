@@ -1,10 +1,9 @@
 const { Router } = require('express');
+const usercontroller = require('../controllers/userController');
 const router = Router();
 
 
-router.post('/', (req, res) => res.json({
-    info: 'post / create users OK!'
-}))
+router.post('/', );
 
 router.get('/', (req, res) => res.json({
     info: 'get users OK!'
@@ -28,5 +27,10 @@ router.get('/saldo/:id', (req, res) => {
     })
 })
 
+router.patch('/saldo/:id', (req, res) => {
+    res.json({
+        info: 'patch / update saldo by user OK!'
+    })
+})
 
 module.exports = router;
