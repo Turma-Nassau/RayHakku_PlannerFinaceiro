@@ -32,8 +32,9 @@ module.exports = {
           len: [8, 20]
         }
       },
-      salto_total: {
+      saldo_total: {
         type: Sequelize.DOUBLE,
+        defaultValue: 0,
         validate: {
           isNumeric: true,
           min: 0

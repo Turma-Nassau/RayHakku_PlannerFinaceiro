@@ -22,8 +22,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(15),
       allowNull: false
     },
-    saldo_bando: {
+    saldo_banco: {
       type: DataTypes.DOUBLE,
+      defaultValue: 0,
       validate: {
         isNumeric: true,
         min: 0

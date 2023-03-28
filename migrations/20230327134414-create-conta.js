@@ -13,8 +13,9 @@ module.exports = {
         type: Sequelize.STRING(15),
         allowNull: false
       },
-      saldo_bando: {
+      saldo_banco: {
         type: Sequelize.DOUBLE,
+        defaultValue: 0,
         validate: {
           isNumeric: true,
           min: 0
