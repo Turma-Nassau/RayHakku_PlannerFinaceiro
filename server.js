@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 
 const userRoutes = require('./routes/userRoutes')
 const rendaRoutes = require('./routes/rendaRoutes')
+const contaRoutes = require('./routes/conta')
 const { sequelize } = require('./models')
 
 
@@ -36,6 +37,7 @@ const connectDB = async () => {
 
     app.use('/api/users', userRoutes);
     app.use('/api/renda', rendaRoutes);
+    app.use('/api/conta', contaRoutes);
 
     app.listen(PORT, () => {
         console.log(`Rodando na Porta ${PORT}.`)
