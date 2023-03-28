@@ -5,32 +5,16 @@ const router = Router();
 
 router.post('/', usercontroller.criarUsuario );
 
-router.get('/', (req, res) => res.json({
-    info: 'get users OK!'
-}))
+router.get('/', usercontroller.verTodosUsuarios);
 
-router.get('/:id', (req, res) => res.json({
-    info: 'get users by id OK!'
-}))
+router.get('/:id', usercontroller.verUsuarioPorId);
 
-router.patch('/:id', (req, res) => res.json({
-    info: 'patch / update users by id OK!'
-}))
+router.patch('/:id', usercontroller.atualizarUsuario);
 
-router.delete('/:id', (req, res) => res.json({
-    info: 'delete users by id OK!'
-}))
+router.delete('/:id', usercontroller.deletarUsuario);
 
-router.get('/saldo/:id', (req, res) => {
-    res.json({
-        info: 'get saldo by user OK!'
-    })
-})
+router.get('/saldo/:id', usercontroller.verSaldo);
 
-router.patch('/saldo/:id', (req, res) => {
-    res.json({
-        info: 'patch / update saldo by user OK!'
-    })
-})
+router.patch('/saldo/:id', usercontroller.atualizarSaldo);
 
 module.exports = router;
