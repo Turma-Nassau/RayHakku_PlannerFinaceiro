@@ -12,6 +12,7 @@ const rendaRoutes = require('./routes/rendaRoutes')
 const contaRoutes = require('./routes/conta')
 const categoriaRoutes = require('./routes/categoria')
 const despesasRoutes = require('./routes/despesas')
+const objetivoRoutes = require('./routes/objetivo')
 const { sequelize } = require('./models')
 
 
@@ -42,6 +43,7 @@ const connectDB = async () => {
     app.use('/api/conta', contaRoutes);
     app.use('/api/categoria', categoriaRoutes);
     app.use('/api/despesa', despesasRoutes);
+    app.use('/api/objetivo', objetivoRoutes);
 
     app.listen(PORT, () => {
         console.log(`Rodando na Porta ${PORT}.`)
