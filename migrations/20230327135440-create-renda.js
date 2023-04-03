@@ -39,6 +39,10 @@ module.exports = {
           key: 'id',
           as: 'userId'
         }
+      },
+      data_renda: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
       }
     });
   },

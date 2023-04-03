@@ -32,6 +32,10 @@ module.exports = (sequelize, DataTypes) => {
         isNumeric: true
       },
       allowNull: false
+    },
+    data_renda: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
     }
   }, {
     sequelize,

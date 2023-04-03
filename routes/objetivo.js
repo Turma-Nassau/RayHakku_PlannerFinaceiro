@@ -1,16 +1,17 @@
 const { Router } = require('express');
 const router = Router();
+const controller = require('../controllers/objetivoController');
 
-router.get('/', )
+router.get('/', controller.verTodosObjetivos);
 
-router.get('/:id', )
+router.get('/:id', controller.verObjetivoPorId);
 
-router.get('/user/:id', )
+router.get('/user/:id', controller.verObjetivosPorUsuario);
 
-router.post('/', )
+router.post('/', controller.criarObjetivo);
 
-router.patch('/:id', )
+router.patch('/:id', controller.atualizarObjetivo);
 
-router.delete('/:id', )
+router.delete('/:id', controller.deletarObjetivo);
 
 module.exports = router;

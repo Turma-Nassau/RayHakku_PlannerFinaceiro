@@ -39,6 +39,10 @@ module.exports = {
           key: 'id',
           as: 'userId'
         }
+      },
+      data_despesa: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
       }
     });
   },

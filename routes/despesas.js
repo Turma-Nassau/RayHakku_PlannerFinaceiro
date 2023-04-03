@@ -1,17 +1,17 @@
 const { Router } = require('express');
 const router = Router();
+const despesasController = require('../controllers/despesasController');
 
-router.get('/', )
+router.get('/', despesasController.verTodasDespesas);
 
-router.get('/:id', )
+router.get('/:id', despesasController.verDespesaPorId);
 
-router.get('/user/:id', )
+router.get('/user/:id', despesasController.verDespesasPorUsuario);
 
-router.post('/', )
+router.post('/', despesasController.criarDespesa);
 
-router.patch('/:id', )
+router.patch('/:id', despesasController.atualizarDespesa);
 
-
-router.delete('/:id', )
+router.delete('/:id', despesasController.deletarDespesa);
 
 module.exports = router;
