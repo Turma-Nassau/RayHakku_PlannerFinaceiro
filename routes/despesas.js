@@ -1,41 +1,17 @@
 const { Router } = require('express');
 const router = Router();
 
-router.get('/', (req, res) => {
-    res.json({
-        info: 'get Despesas OK!'
-    })
-})
+router.get('/', )
 
-router.get('/:id', (req, res) => {
-    res.json({
-        info: 'get id Despesas OK!'
-    })
-})
+router.get('/:id', )
 
-router.get('/user/:id', (req, res) => {
-    res.json({
-        info: 'get user id Despesas OK!'
-    })
-})
+router.get('/user/:id', )
 
-router.post('/', (req, res) => {
-    res.json({
-        info: 'post Despesas OK!'
-    })
-})
+router.post('/', )
 
-router.patch('/:id', (req, res) => {
-    res.json({
-        info: 'patch Despesas OK!'
-    })
-})
+router.patch('/:id', )
 
 
-router.delete('/:id', (req, res) => {
-    res.json({
-        info: 'delete Despesas OK!'
-    })
-})
+router.delete('/:id', )
 
 module.exports = router;
