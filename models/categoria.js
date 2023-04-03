@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Categoria.belongsTo(models.Usuario, {
+        foreignKey: 'userId',
+        onDelete: 'CASCADE'
+      })
     }
   }
   Categoria.init({
