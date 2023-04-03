@@ -15,4 +15,6 @@ router.patch('/:id', )
 
 router.delete('/:id', )
 
+router.patch('/saldo/:id', )
+
 module.exports = router;
