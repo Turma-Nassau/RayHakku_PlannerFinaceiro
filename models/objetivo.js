@@ -37,6 +37,9 @@ module.exports = (sequelize, DataTypes) => {
         isNumeric: true
       },
       defaultValue: 0
+    },
+    userId: {
+      type: DataTypes.INTEGER,
     }
   }, {
     sequelize,

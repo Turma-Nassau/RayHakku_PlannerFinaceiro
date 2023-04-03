@@ -36,6 +36,9 @@ module.exports = (sequelize, DataTypes) => {
     data_renda: {
       type: DataTypes.DATEONLY,
       allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
     }
   }, {
     sequelize,

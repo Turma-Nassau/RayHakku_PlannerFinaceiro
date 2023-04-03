@@ -9,6 +9,7 @@ exports.criarRenda = async (req, res) => {
         nome_renda: req.body.nome,
         tipo_renda: req.body.tipo,
         valor_renda: req.body.valor,
+        data_renda: req.body.data,
         userId: req.body.userId,
     }).then((result) => {
         res.status(201).json({

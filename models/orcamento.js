@@ -41,6 +41,9 @@ module.exports = (sequelize, DataTypes) => {
     categoria: {
       type: DataTypes.STRING(15),
       allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
     }
   }, {
     sequelize,

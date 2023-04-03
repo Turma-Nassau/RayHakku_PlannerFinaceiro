@@ -22,16 +22,16 @@
               "type": "object",
               "properties": {
                 "nome": {
-                  "example": "any"
+                  "example": "John"
                 },
                 "sobrenome": {
-                  "example": "any"
+                  "example": "Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "any@example.com"
                 },
                 "senha": {
-                  "example": "any"
+                  "example": "password"
                 }
               }
             }
@@ -226,16 +226,19 @@
               "type": "object",
               "properties": {
                 "nome": {
-                  "example": "any"
+                  "example": "Salario"
                 },
                 "tipo": {
-                  "example": "any"
+                  "example": "Salaio"
                 },
                 "valor": {
-                  "example": "any"
+                  "example": "25"
+                },
+                "data": {
+                  "example": "2023/04/01"
                 },
                 "userId": {
-                  "example": "any"
+                  "example": "1"
                 }
               }
             }
@@ -482,13 +485,13 @@
               "type": "object",
               "properties": {
                 "nome": {
-                  "example": "any"
+                  "example": "NuBank"
                 },
                 "saldo": {
-                  "example": "any"
+                  "example": "25"
                 },
                 "userId": {
-                  "example": "any"
+                  "example": "1"
                 }
               }
             }
@@ -680,13 +683,13 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "any"
+                  "example": "1"
                 },
                 "nome": {
-                  "example": "any"
+                  "example": "Alimento"
                 },
                 "tipo": {
-                  "example": "any"
+                  "example": "Despesa"
                 }
               }
             }
@@ -725,19 +728,19 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "any"
+                  "example": "1"
                 },
                 "nome": {
-                  "example": "any"
+                  "example": "Hot-Dog"
                 },
                 "valor": {
-                  "example": "any"
+                  "example": "5"
                 },
                 "data": {
-                  "example": "any"
+                  "example": "2023/04/01"
                 },
                 "tipo": {
-                  "example": "any"
+                  "example": "Alimento"
                 }
               }
             }
@@ -877,16 +880,16 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "any"
+                  "example": "1"
                 },
                 "nome": {
-                  "example": "any"
+                  "example": "Carro"
                 },
                 "valor": {
-                  "example": "any"
+                  "example": "25000"
                 },
                 "valor_atual": {
-                  "example": "any"
+                  "example": "25"
                 }
               }
             }
@@ -1023,19 +1026,19 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "any"
+                  "example": "1"
                 },
                 "nome": {
-                  "example": "any"
+                  "example": "Alimento"
                 },
                 "valor": {
-                  "example": "any"
+                  "example": "0"
                 },
                 "limite": {
-                  "example": "any"
+                  "example": "500"
                 },
                 "categoria": {
-                  "example": "any"
+                  "example": "Alimento"
                 }
               }
             }

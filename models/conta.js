@@ -11,10 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Conta.belongsTo(models.Usuario, {
-        foreignKey: 'userId',
-        onDelete: 'CASCADE'
-      })
+      Conta.belongsTo(models.Usuario)
     }
   }
   Conta.init({
@@ -29,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
         isNumeric: true,
         min: 0
       }
+    },
+    UsuariosId: {
+      type: DataTypes.INTEGER,
     }
   }, {
     sequelize,

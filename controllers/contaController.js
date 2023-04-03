@@ -3,23 +3,24 @@ const { sequelize } = require('../models');
 const contaModel = require('../models/conta')(sequelize, Sequelize.DataTypes, Sequelize.Model);
 
 exports.criarConta = async (req, res) => {
-    console.log('POST');
-    console.log(req.body);
-    await contaModel.create({
-        nome_banco: req.body.nome,
-        saldo_banco: req.body.saldo,
-        userId: req.body.userId,
-    }).then((result) => {
+    try {
+        console.log('POST');
+        console.log(req.body);
+        const conta = await contaModel.create({
+            nome_banco: req.body.nome,
+            saldo_banco: req.body.saldo,
+            UsuariosId: req.body.userId,
+        });
         res.status(201).json({
             message: "Conta criada com sucesso!",
-            conta: result
+            conta
         });
-    }).catch((err) => {
+    } catch (err) {
         res.status(500).json({
             message: "Erro ao criar conta",
             error: err
         });
-    });
+    }
 }
 
 exports.verTodasContas = async (req, res) => {
@@ -60,7 +61,7 @@ exports.verContaPorId = async (req, res) => {
 
 exports.verContasPorUsuario = async (req, res) => {
     console.log('GET');
-    await contaModel.findAll({ where: { userId: req.params.id } }).then((result) => {
+    await contaModel.findAll({ where: { UsuariosId: req.params.id } }).then((result) => {
         if (result == null) {
             res.status(404).json({
                 message: "Conta não encontrada",

@@ -41,7 +41,7 @@ module.exports = {
         }
       },
       data_despesa: {
-        type: DataTypes.DATEONLY,
+        type: Sequelize.DATEONLY,
         allowNull: false
       }
     });

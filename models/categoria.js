@@ -25,6 +25,9 @@ module.exports = (sequelize, DataTypes) => {
     tipo_categoria: {
       type: DataTypes.STRING(10),
       allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
     }
   }, {
     sequelize,
