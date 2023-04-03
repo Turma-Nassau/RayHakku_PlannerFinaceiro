@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Despesa.belongsTo(models.Usuario, {
+        foreignKey: 'userId',
+        onDelete: 'CASCADE'
+      })
     }
   }
   Despesa.init({
@@ -28,6 +32,13 @@ module.exports = (sequelize, DataTypes) => {
         isNumeric: true,
       },
       allowNull: false
+    },
+    data_despesa: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
     }
   }, {
     sequelize,

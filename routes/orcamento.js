@@ -1,41 +1,17 @@
 const { Router } = require('express');
 const router = Router();
+const orcamentoControllers = require('../controllers/orcamentoController');
 
-router.get('/', (req, res) => {
-    res.json({
-        info: 'get orcamento OK!'
-    })
-})
+router.get('/', orcamentoControllers.verTodosOrcamentos);
 
-router.get('/:id', (req, res) => {
-    res.json({
-        info: 'get id orcamento OK!'
-    })
-})
+router.get('/:id', orcamentoControllers.verOrcamentoPorId);
 
-router.get('/user/:id', (req, res) => {
-    res.json({
-        info: 'get user id orcamento OK!'
-    })
-})
+router.get('/user/:id', orcamentoControllers.verOrcamentosPorUsuario);
 
-router.post('/', (req, res) => {
-    res.json({
-        info: 'post orcamento OK!'
-    })
-})
+router.post('/', orcamentoControllers.criarOrcamento);
 
-router.patch('/:id', (req, res) => {
-    res.json({
-        info: 'patch orcamento OK!'
-    })
-})
+router.patch('/:id', orcamentoControllers.atualizarOrcamento);
 
-
-router.delete('/:id', (req, res) => {
-    res.json({
-        info: 'delete orcamento OK!'
-    })
-})
+router.delete('/:id', orcamentoControllers.deletarOrcamento);
 
 module.exports = router;

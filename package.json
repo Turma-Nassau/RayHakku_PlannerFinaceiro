@@ -106,6 +106,8 @@
   "author": "RayHakky",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.21",
     "sequelize-cli": "^6.6.0"
   }

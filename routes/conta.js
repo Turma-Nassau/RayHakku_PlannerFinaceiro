@@ -1,18 +1,21 @@
 const { Router } = require('express');
 const router = Router();
+const contaController = require('../controllers/contaController');
 
-router.get('/user/:id', )
+router.get('/user/:id', contaController.verContasPorUsuario);
 
-router.get('/:id', )
+router.get('/:id', contaController.verContaPorId );
 
-router.get('/', )
+router.get('/', contaController.verTodasContas);
 
-router.get('/saldo/:id', )
+router.get('/saldo/:id', contaController.verSaldo); 
 
-router.post('/', )
+router.post('/', contaController.criarConta);
 
-router.patch('/:id', )
+router.patch('/:id', contaController.atualizarConta);
 
-router.delete('/:id', )
+router.delete('/:id', contaController.deletarConta);
+
+router.patch('/saldo/:id', contaController.atualizarSaldo)
 
 module.exports = router;

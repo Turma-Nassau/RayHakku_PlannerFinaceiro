@@ -1,41 +1,17 @@
 const { Router } = require('express');
 const router = Router();
+const rendaController = require('../controllers/rendaController');
 
-router.get('/', (req, res) => {
-    res.json({
-        info: 'get Renda OK!'
-    })
-})
+router.get('/', rendaController.verTodasRendas);
 
-router.get('/:id', (req, res) => {
-    res.json({
-        info: 'get id Renda OK!'
-    })
-})
+router.get('/:id', rendaController.verRendaPorId);
 
-router.get('/user/:id', (req, res) => {
-    res.json({
-        info: 'get user id Renda OK!'
-    })
-})
+router.get('/user/:id', rendaController.verRendasPorUsuario);
 
-router.post('/', (req, res) => {
-    res.json({
-        info: 'post renda OK!'
-    })
-})
+router.post('/', rendaController.criarRenda);
 
-router.patch('/:id', (req, res) => {
-    res.json({
-        info: 'patch renda OK!'
-    })
-})
+router.patch('/:id', rendaController.atualizarRenda);
 
-
-router.delete('/:id', (req, res) => {
-    res.json({
-        info: 'delete renda OK!'
-    })
-})
+router.delete('/:id', rendaController.deletarRenda);
 
 module.exports = router;

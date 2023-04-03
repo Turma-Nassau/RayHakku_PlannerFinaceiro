@@ -1,40 +1,17 @@
 const { Router } = require('express');
 const router = Router();
+const categoriaControllers = require('../controllers/categoriaControllers');
 
-router.get('/user/:id', (req, res) => {
-    res.json({
-        info: 'get categoria by user id OK!'
-    })
-})
+router.get('/user/:id', categoriaControllers.verCategoriasPorUsuario);
 
-router.get('/:id', (req, res) => {
-    res.json({
-        info: 'get categoria by id OK!'
-    })
-})
+router.get('/:id', categoriaControllers.verCategoriaPorId);
 
-router.get('/', (req, res) => {
-    res.json({
-        info: 'get categoria OK!'
-    })
-})
+router.get('/', categoriaControllers.verTodasCategorias);
 
-router.post('/', (req, res) => {
-    res.json({
-        info: 'post categoria OK!'
-    })
-})
+router.post('/', categoriaControllers.criarCategoria);
 
-router.patch('/:id', (req, res) => {
-    res.json({
-        info: 'patch categoria by id OK!'
-    })
-})
+router.patch('/:id', categoriaControllers.atualizarCategoria);
 
-router.delete('/:id', (req, res) => {
-    res.json({
-        info: 'delete categoria by id OK!'
-    })
-})
+router.delete('/:id', categoriaControllers.deletarCategoria);
 
 module.exports = router;

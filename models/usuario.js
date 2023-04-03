@@ -11,10 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Usuario.hasMany(models.Conta, {
-        foreignKey: 'userId',
-        as: 'usuarios'
-      })
+      Usuario.hasMany(models.Conta,{onDelete:'CASCADE', onUpdate:'CASCADE'})
+      Usuario.hasMany(models.Renda,{onDelete:'CASCADE', onUpdate:'CASCADE'})
+      Usuario.hasMany(models.Orcamento,{onDelete:'CASCADE', onUpdate:'CASCADE'})
+      Usuario.hasMany(models.Despesa,{onDelete:'CASCADE', onUpdate:'CASCADE'})
+      Usuario.hasMany(models.Categoria,{onDelete:'CASCADE', onUpdate:'CASCADE'})
+      Usuario.hasMany(models.Objetivo,{onDelete:'CASCADE', onUpdate:'CASCADE'})
     }
   }
   Usuario.init({
@@ -55,3 +57,5 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Usuario;
 };
+
+//module.exports = Usuario;

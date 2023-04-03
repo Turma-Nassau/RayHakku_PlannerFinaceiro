@@ -1,41 +1,17 @@
 const { Router } = require('express');
 const router = Router();
+const despesasController = require('../controllers/despesasController');
 
-router.get('/', (req, res) => {
-    res.json({
-        info: 'get Despesas OK!'
-    })
-})
+router.get('/', despesasController.verTodasDespesas);
 
-router.get('/:id', (req, res) => {
-    res.json({
-        info: 'get id Despesas OK!'
-    })
-})
+router.get('/:id', despesasController.verDespesaPorId);
 
-router.get('/user/:id', (req, res) => {
-    res.json({
-        info: 'get user id Despesas OK!'
-    })
-})
+router.get('/user/:id', despesasController.verDespesasPorUsuario);
 
-router.post('/', (req, res) => {
-    res.json({
-        info: 'post Despesas OK!'
-    })
-})
+router.post('/', despesasController.criarDespesa);
 
-router.patch('/:id', (req, res) => {
-    res.json({
-        info: 'patch Despesas OK!'
-    })
-})
+router.patch('/:id', despesasController.atualizarDespesa);
 
-
-router.delete('/:id', (req, res) => {
-    res.json({
-        info: 'delete Despesas OK!'
-    })
-})
+router.delete('/:id', despesasController.deletarDespesa);
 
 module.exports = router;

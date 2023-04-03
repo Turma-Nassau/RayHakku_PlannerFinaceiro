@@ -1,41 +1,17 @@
 const { Router } = require('express');
 const router = Router();
+const controller = require('../controllers/objetivoController');
 
-router.get('/', (req, res) => {
-    res.json({
-        info: 'get objetivo OK!'
-    })
-})
+router.get('/', controller.verTodosObjetivos);
 
-router.get('/:id', (req, res) => {
-    res.json({
-        info: 'get id objetivo OK!'
-    })
-})
+router.get('/:id', controller.verObjetivoPorId);
 
-router.get('/user/:id', (req, res) => {
-    res.json({
-        info: 'get user id objetivo OK!'
-    })
-})
+router.get('/user/:id', controller.verObjetivosPorUsuario);
 
-router.post('/', (req, res) => {
-    res.json({
-        info: 'post objetivo OK!'
-    })
-})
+router.post('/', controller.criarObjetivo);
 
-router.patch('/:id', (req, res) => {
-    res.json({
-        info: 'patch objetivo OK!'
-    })
-})
+router.patch('/:id', controller.atualizarObjetivo);
 
-
-router.delete('/:id', (req, res) => {
-    res.json({
-        info: 'delete objetivo OK!'
-    })
-})
+router.delete('/:id', controller.deletarObjetivo);
 
 module.exports = router;

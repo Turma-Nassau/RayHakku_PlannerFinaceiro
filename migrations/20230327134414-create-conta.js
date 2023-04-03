@@ -29,15 +29,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      userId:{
+      UsuariosId:{
         type: Sequelize.INTEGER,
-        references:{
+        references: {
           model: 'Usuarios',
-          key: 'id',
-          as: 'userId'
+          key: 'id'
         }
       }
-    });
+   });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Conta');
