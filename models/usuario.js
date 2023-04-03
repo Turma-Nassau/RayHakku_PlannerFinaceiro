@@ -18,27 +18,22 @@ module.exports = (sequelize, DataTypes) => {
 
       Usuario.hasMany(models.Renda, {
         foreignKey: 'userId',
-        as: 'usuarios'
       })
 
       Usuario.hasMany(models.Despesa, {
         foreignKey: 'userId',
-        as: 'usuarios'
       })
 
       Usuario.hasMany(models.Objetivo, {
         foreignKey: 'userId',
-        as: 'usuarios'
       })
 
       Usuario.hasMany(models.Categoria, {
         foreignKey: 'userId',
-        as: 'usuarios'
       })
       
       Usuario.hasMany(models.Orcamento,{
         foreignKey: 'userId',
-        as: 'usuarios'
       })
     }
   }

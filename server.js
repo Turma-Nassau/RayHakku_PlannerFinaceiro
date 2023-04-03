@@ -41,7 +41,7 @@ const connectDB = async () => {
         extended: true,
     }))
 
-    app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+    
     app.use('/api/users', userRoutes);
     app.use('/api/renda', rendaRoutes);
     app.use('/api/conta', contaRoutes);
@@ -49,6 +49,7 @@ const connectDB = async () => {
     app.use('/api/despesa', despesasRoutes);
     app.use('/api/objetivo', objetivoRoutes);
     app.use('/api/orcamento', orcamentoRoutes);
+    app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
     app.listen(PORT, () => {
         console.log(`Rodando na Porta ${PORT}.`)

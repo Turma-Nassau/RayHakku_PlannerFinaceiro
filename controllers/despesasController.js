@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const { sequelize } = require('../models');
-const despesasModels = require('../models/depesas')(sequelize, Sequelize.DataTypes, Sequelize.Model);
+const despesasModels = require('../models/despesa')(sequelize, Sequelize.DataTypes, Sequelize.Model);
 
 exports.verTodasDespesas = async (req, res) => {
     console.log('GET');
