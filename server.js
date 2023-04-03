@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 
 
-const fs = require('fs')
-var PORT = 8000;
+const fs = require('fs');
+let PORT = 8000;
 const bodyParser = require('body-parser');
+const swaggerFile = require('./swagger_output.json');
+const swaggerUi = require('swagger-ui-express');
 
 
 const userRoutes = require('./routes/userRoutes')
@@ -39,6 +41,7 @@ const connectDB = async () => {
         extended: true,
     }))
 
+    app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile));
     app.use('/api/users', userRoutes);
     app.use('/api/renda', rendaRoutes);
     app.use('/api/conta', contaRoutes);
