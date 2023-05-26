@@ -7,6 +7,10 @@ let PORT = 8000;
 const bodyParser = require('body-parser');
 const swaggerFile = require('./swagger_output.json');
 const swaggerUi = require('swagger-ui-express');
+const cors = require('cors');
+let corsOptions = {
+    origin: 'http://localhost:8001',
+}
 
 
 const userRoutes = require('./routes/userRoutes')
@@ -35,6 +39,9 @@ const connectDB = async () => {
 
 (async () => {
     await connectDB();
+
+    app.use(cors(corsOptions))
+
     app.use(bodyParser.json())
 
     app.use(bodyParser.urlencoded({
@@ -51,9 +58,12 @@ const connectDB = async () => {
     app.use('/api/orcamento', orcamentoRoutes);
     app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
+    
     app.listen(PORT, () => {
         console.log(`Rodando na Porta ${PORT}.`)
     })
+    
+    
 
 })()
 
