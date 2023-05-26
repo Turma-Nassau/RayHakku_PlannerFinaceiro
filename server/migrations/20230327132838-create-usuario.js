@@ -26,11 +26,8 @@ module.exports = {
         }
       },
       senha: {
-        type: Sequelize.STRING(20),
+        type: Sequelize.STRING(255),
         allowNull: false,
-        validate: {
-          len: [8, 20]
-        }
       },
       saldo_total: {
         type: Sequelize.DOUBLE,

@@ -1,5 +1,7 @@
 const Sequelize=require('sequelize');
 const { sequelize } = require('../models');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const userModel = require('../models/usuario')(sequelize, Sequelize.DataTypes, Sequelize.Model);
 
 exports.criarUsuario = async (req, res) => {
@@ -9,8 +11,9 @@ exports.criarUsuario = async (req, res) => {
         nome: req.body.nome,
         sobrenome: req.body.sobrenome,
         email: req.body.email,
-        senha: req.body.senha,
-    }).then((result) => {
+        senha: bcrypt.hashSync(req.body.senha, saltRounds, function(err, hash) {
+            return hash;
+    })}).then((result) => {
         res.status(201).json({
             message: "Usuário criado com sucesso!",
             user: result

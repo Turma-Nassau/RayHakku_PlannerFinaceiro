@@ -37,11 +37,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     senha: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(255),
       allowNull: false,
-      validate: {
-        len: [8, 20]
-      }
     },
     saldo_total: {
       type: DataTypes.DOUBLE,
