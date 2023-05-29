@@ -3,6 +3,9 @@ const { sequelize } = require('../models');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const userModel = require('../models/usuario')(sequelize, Sequelize.DataTypes, Sequelize.Model);
+const jwt = require('jsonwebtoken');
+const config = require('../config/auth.config');
+
 
 exports.criarUsuario = async (req, res) => {
    console.log('POST');
@@ -24,6 +27,36 @@ exports.criarUsuario = async (req, res) => {
             error: err
         });
     });
+}
+
+exports.login = async (req, res) => {
+     await userModel.findOne({
+        where: {
+            email: req.body.email
+        }
+    }).then((Usuario => {
+        if(!Usuario.email){
+            res.status(404).json({
+                message: "Usuário não encontrado",
+            });
+        }
+        let passwordIsValid = bcrypt.compareSync(req.body.senha, Usuario.senha);
+        if(!passwordIsValid){
+            return res.status(401).send({
+                accessToken: null,
+                message: "Senha inválida"
+            })
+        }
+
+         var token = jwt.sign({id: Usuario.id}, config.secret, {
+             expiresIn: 86400
+         })
+         res.status(200).send({
+             id: Usuario.id,
+             email: Usuario.email,
+             accessToken: token
+         })
+    }))
 }
 
 exports.verTodosUsuarios = async (req, res) => {
