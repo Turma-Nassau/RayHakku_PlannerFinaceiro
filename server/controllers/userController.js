@@ -52,6 +52,7 @@ exports.login = async (req, res) => {
             })
             res.status(200).send({
                 message:"Login realizado com sucesso",
+                id: user.id,
                 email: user.email,
                 token,
             })

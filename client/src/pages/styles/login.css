@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+h1 {
+  @apply text-4xl font-bold;
+  color: #000000;
+}
+
+.LabelsInputs {
+    @apply flex flex-col items-start;
+    @apply mb-6;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.Input{
+    @apply border-2 border-gray-400 rounded-lg px-4 py-2;
+    @apply p-2;
+    @apply w-64;
+    font-family: 'Poppins', sans-serif;
+}
+ .Button {
+    font-family: 'Poppins', sans-serif;
+}
