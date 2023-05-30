@@ -3,7 +3,7 @@ const app = express();
 
 
 const fs = require('fs');
-let PORT = 8000;
+let PORT = 8001;
 const bodyParser = require('body-parser');
 const swaggerFile = require('./swagger_output.json');
 const swaggerUi = require('swagger-ui-express');
@@ -37,9 +37,16 @@ const connectDB = async () => {
 (async () => {
     await connectDB();
 
-    app.use(function(req, res, next) {
-        res.header("Access-Control-Allow-Origin", "http://localhost:8001"); // update to match the domain you will make the request from
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    app.use((req, res, next) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader(
+          "Access-Control-Allow-Headers",
+          "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+        );
+        res.setHeader(
+          "Access-Control-Allow-Methods",
+          "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+        );
         next();
       });
 

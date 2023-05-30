@@ -34,29 +34,41 @@ exports.login = async (req, res) => {
         where: {
             email: req.body.email
         }
-    }).then((Usuario => {
-        if(!Usuario.email){
-            res.status(404).json({
-                message: "Usuário não encontrado",
-            });
-        }
-        let passwordIsValid = bcrypt.compareSync(req.body.senha, Usuario.senha);
-        if(!passwordIsValid){
-            return res.status(401).send({
-                accessToken: null,
-                message: "Senha inválida"
+    }).then((user =>{
+        bcrypt.compare(req.body.senha, user.senha)
+        .then(senhaValidar => {
+            if(!senhaValidar){
+                return res.status(400).send({
+                    message:"Senha incorreta",
+                    error
+                })
+            }
+            const token = jwt.sign({
+                userId: user.id,
+                userEmail: user.email,
+            },
+            config.secret,{
+                expiresIn: 86400
+            })
+            res.status(200).send({
+                message:"Login realizado com sucesso",
+                email: user.email,
+                token,
             })
         }
-
-         var token = jwt.sign({id: Usuario.id}, config.secret, {
-             expiresIn: 86400
-         })
-         res.status(200).send({
-             id: Usuario.id,
-             email: Usuario.email,
-             accessToken: token
-         })
-    }))
+        )
+        .catch((err) => {
+            res.status(400).send({
+                message:"Senha incorreta",
+                err
+            })
+        })}))
+        .catch((err) => {
+        res.status(404).send({
+            message:"Email não encontrado",
+            err
+        })
+    })
 }
 
 exports.verTodosUsuarios = async (req, res) => {
