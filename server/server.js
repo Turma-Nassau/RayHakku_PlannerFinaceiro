@@ -8,10 +8,7 @@ const bodyParser = require('body-parser');
 const swaggerFile = require('./swagger_output.json');
 const swaggerUi = require('swagger-ui-express');
 const cors = require('cors');
-let corsOptions = {
-    origin: 'http://localhost:8001',
-}
-
+ 
 
 const userRoutes = require('./routes/userRoutes')
 const rendaRoutes = require('./routes/rendaRoutes')
@@ -40,7 +37,11 @@ const connectDB = async () => {
 (async () => {
     await connectDB();
 
-    app.use(cors(corsOptions))
+    app.use(function(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "http://localhost:8001"); // update to match the domain you will make the request from
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+      });
 
     app.use(bodyParser.json())
 
