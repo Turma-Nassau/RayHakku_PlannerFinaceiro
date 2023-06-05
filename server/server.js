@@ -3,11 +3,12 @@ const app = express();
 
 
 const fs = require('fs');
-let PORT = 8000;
+let PORT = 8001;
 const bodyParser = require('body-parser');
 const swaggerFile = require('./swagger_output.json');
 const swaggerUi = require('swagger-ui-express');
-
+const cors = require('cors');
+ 
 
 const userRoutes = require('./routes/userRoutes')
 const rendaRoutes = require('./routes/rendaRoutes')
@@ -35,6 +36,20 @@ const connectDB = async () => {
 
 (async () => {
     await connectDB();
+
+    app.use((req, res, next) => {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader(
+          "Access-Control-Allow-Headers",
+          "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+        );
+        res.setHeader(
+          "Access-Control-Allow-Methods",
+          "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+        );
+        next();
+      });
+
     app.use(bodyParser.json())
 
     app.use(bodyParser.urlencoded({
@@ -51,9 +66,12 @@ const connectDB = async () => {
     app.use('/api/orcamento', orcamentoRoutes);
     app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
+    
     app.listen(PORT, () => {
         console.log(`Rodando na Porta ${PORT}.`)
     })
+    
+    
 
 })()
 

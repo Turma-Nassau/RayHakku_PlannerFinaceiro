@@ -17,4 +17,5 @@ router.get('/saldo/:id', usercontroller.verSaldo);
 
 router.patch('/saldo/:id', usercontroller.atualizarSaldo);
 
+router.post('/login', usercontroller.login);
 module.exports = router;

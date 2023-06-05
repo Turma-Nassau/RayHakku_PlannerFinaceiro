@@ -5,7 +5,7 @@
     "title": "GreenWallet API",
     "description": "API para controle de finanças pessoais"
   },
-  "host": "localhost:8000",
+  "host": "localhost:8001",
   "basePath": "/",
   "schemes": [
     "http"
@@ -22,16 +22,16 @@
               "type": "object",
               "properties": {
                 "nome": {
-                  "example": "John"
+                  "example": "any"
                 },
                 "sobrenome": {
-                  "example": "Doe"
+                  "example": "any"
                 },
                 "email": {
-                  "example": "any@example.com"
+                  "example": "any"
                 },
                 "senha": {
-                  "example": "password"
+                  "example": "any"
                 }
               }
             }
@@ -203,6 +203,36 @@
         }
       }
     },
+    "/api/users/login": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "example": "any"
+                },
+                "senha": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
     "/api/renda/": {
       "get": {
         "description": "",
@@ -226,19 +256,19 @@
               "type": "object",
               "properties": {
                 "nome": {
-                  "example": "Salario"
+                  "example": "any"
                 },
                 "tipo": {
-                  "example": "Salaio"
+                  "example": "any"
                 },
                 "valor": {
-                  "example": "25"
+                  "example": "any"
                 },
                 "data": {
-                  "example": "2023/04/01"
+                  "example": "any"
                 },
                 "userId": {
-                  "example": "1"
+                  "example": "any"
                 }
               }
             }
@@ -485,13 +515,13 @@
               "type": "object",
               "properties": {
                 "nome": {
-                  "example": "NuBank"
+                  "example": "any"
                 },
                 "saldo": {
-                  "example": "25"
+                  "example": "any"
                 },
                 "userId": {
-                  "example": "1"
+                  "example": "any"
                 }
               }
             }
@@ -683,13 +713,13 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "1"
+                  "example": "any"
                 },
                 "nome": {
-                  "example": "Alimento"
+                  "example": "any"
                 },
                 "tipo": {
-                  "example": "Despesa"
+                  "example": "any"
                 }
               }
             }
@@ -728,19 +758,19 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "1"
+                  "example": "any"
                 },
                 "nome": {
-                  "example": "Hot-Dog"
+                  "example": "any"
                 },
                 "valor": {
-                  "example": "5"
+                  "example": "any"
                 },
                 "data": {
-                  "example": "2023/04/01"
+                  "example": "any"
                 },
                 "tipo": {
-                  "example": "Alimento"
+                  "example": "any"
                 }
               }
             }
@@ -880,16 +910,16 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "1"
+                  "example": "any"
                 },
                 "nome": {
-                  "example": "Carro"
+                  "example": "any"
                 },
                 "valor": {
-                  "example": "25000"
+                  "example": "any"
                 },
                 "valor_atual": {
-                  "example": "25"
+                  "example": "any"
                 }
               }
             }
@@ -1026,19 +1056,19 @@
               "type": "object",
               "properties": {
                 "userId": {
-                  "example": "1"
+                  "example": "any"
                 },
                 "nome": {
-                  "example": "Alimento"
+                  "example": "any"
                 },
                 "valor": {
-                  "example": "0"
+                  "example": "any"
                 },
                 "limite": {
-                  "example": "500"
+                  "example": "any"
                 },
                 "categoria": {
-                  "example": "Alimento"
+                  "example": "any"
                 }
               }
             }
