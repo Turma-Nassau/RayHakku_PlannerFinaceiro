@@ -75,3 +75,12 @@
     @apply text-3xl font-bold text-center text-gray-700 mb-5;
     font-family: 'Poppins', sans-serif;
  }
+
+.textColorGreen{
+    color: forestgreen;
+}
+
+.h2a{
+    @apply text-2xl font-bold text-center text-gray-700 mb-5;
+    font-family: 'Poppins', sans-serif;
+}
