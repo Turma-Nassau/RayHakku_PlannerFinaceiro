@@ -8,7 +8,7 @@ const docs = {
         title: "GreenWallet API",
         description: "API para controle de finanças pessoais"
     },
-    host: "localhost:8000",
+    host: "localhost:8001",
     schemes: ['http'],
 };
 

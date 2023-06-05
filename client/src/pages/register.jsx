@@ -2,7 +2,7 @@ import react from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
-import './styles/login.css'
+import './styles/main.css'
 
 export default function Register() {
     const [name, setName] = react.useState('')
@@ -37,45 +37,46 @@ export default function Register() {
     return(
         <div>
             <div>
-                <form onSubmit={e => handleSubmit(e)}>
+                <form onSubmit={e => handleSubmit(e)} className='formCard'>
+                    <h1 className='h1C' >Cadastro</h1>
                     <div>
 
-                    <label htmlFor="name" className='LabelsInputs'>Nome
-                    <input type="text" name="name" id="name" className='Input' value={name} onChange={e => setName(e.target.value)} />
+                    <label htmlFor="name" className='formLabel'>Nome
+                    <input type="text" name="name" id="name" className='formInput' value={name} onChange={e => setName(e.target.value)} />
                     </label>
 
                     </div>
                     
                     <div>
-                        <label htmlFor="sobrenome" className='LabelsInputs'>Sobrenome
-                        <input type="text" name='sobrenome' id='sobrenome' className='Input' value={sobrenome} onChange={e => setSobrenome (e.target.value)} />
+                        <label htmlFor="sobrenome" className='formLabel'>Sobrenome
+                        <input type="text" name='sobrenome' id='sobrenome' className='formInput' value={sobrenome} onChange={e => setSobrenome (e.target.value)} />
                         </label>
 
                     </div>
                     <div>
 
-                        <label htmlFor="email" className='LabelsInputs'>Email
-                        <input type="email" name='email' id='email' className='Input' value={email} onChange={e => setEmail (e.target.value)} />
+                        <label htmlFor="email" className='formLabel'>Email
+                        <input type="email" name='email' id='email' className='formInput' value={email} onChange={e => setEmail (e.target.value)} />
                         </label>
 
                     </div>
                     <div>
 
-                        <label htmlFor="password" className='LabelsInputs'>Senha
-                        <input type="password" name='password' id='password' className='Input' value={password} onChange={e => setPassword (e.target.value)} />
+                        <label htmlFor="password" className='formLabel'>Senha
+                        <input type="password" name='password' id='password' className='formInput' value={password} onChange={e => setPassword (e.target.value)} />
                         </label>
 
                     </div>
                     <div>
 
-                        <label htmlFor="passwordConfirm" className='LabelsInputs'>Confirmar senha
-                        <input type="password" name='passwordConfirm' id='passwordConfirm' className='Input' value={passwordConfirm} onChange={e => setPasswordConfirm (e.target.value)} />
+                        <label htmlFor="passwordConfirm" className='formLabel'>Confirmar senha
+                        <input type="password" name='passwordConfirm' id='passwordConfirm' className='formInput' value={passwordConfirm} onChange={e => setPasswordConfirm (e.target.value)} />
                         </label>
 
                     </div>
                     <div>
 
-                        <input type="submit" value="Cadastrar" className='Button' onClick={e => handleSubmit(e)} />
+                        <input type="submit" value="Cadastrar" className='formButton' onClick={e => handleSubmit(e)} />
 
                     </div>
                     {register ? (<p>Cadastrado</p>) : (<p>Não cadastrado</p>)}

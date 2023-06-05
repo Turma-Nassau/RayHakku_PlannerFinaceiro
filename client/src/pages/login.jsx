@@ -1,16 +1,18 @@
 import react from 'react';
 import axios from 'axios';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.svg';
 
-
-import './styles/login.css';
+import './styles/main.css';
 
 export default function Login() {
     const [email, setEmail] = react.useState('')
     const [password, setPassword] = react.useState('')
     const [login, setLogin] = react.useState(false)
     const navigate = useNavigate()
-
+    const LOGO = logo
+     const [user, setUser] = react.useState({})
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         const config = {
@@ -21,12 +23,18 @@ export default function Login() {
                 senha: password
             }
         }
-        axios(config).then(()=>{
+        axios(config).then((res)=>{ 
+            setUser(res.data)
             setLogin(true)
-            navigate('/dashboard')
+            try {
+                localStorage.setItem('user', JSON.stringify(res.data))
+                navigate('/dashboard')
+            } catch (error) {
+                console.log(error)
+            }
+            
             
         }).catch((error)=>{
-            console.log(error.response)
             if(error.response.status === 400){
                 alert('senha incorreta')
             }
@@ -38,24 +46,24 @@ export default function Login() {
 
     return (
         <div>
-            <div>
+            <div className='formCard'>
+                <img src={LOGO} alt="Logo" className='imgLogo' />
                 <form onSubmit={(e)=>handleSubmit(e)} >
                     <div>
-                        <label htmlFor="Email" className='LabelsInputs' >Email
-                            <input type="email" name="email" id="email" className='Input' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        <label htmlFor="Email" className='formLabel' >Email
+                            <input type="email" name="email" id="email" className='formInput' value={email} onChange={(e) => setEmail(e.target.value)} required />
                         </label>
                     </div>
                     <div>
-                        <label htmlFor="Password" className='LabelsInputs' >Senha
-                            <input type="password" name="password" id="password" className='Input' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        <label htmlFor="Password" className='formLabel' >Senha
+                            <input type="password" name="password" id="password" className='formInput' value={password} onChange={(e) => setPassword(e.target.value)} required />
                         </label>
                     </div>
                     <div>
-                        <input type="submit" value="Login" className='Button' onClick={(e)=>handleSubmit(e)} />
+                        <input type="submit" value="Login" className='formButton' onClick={(e)=>handleSubmit(e)} />
                     </div>
-                    {login ? (<p>Logado</p>) : (<p>Não logado</p>)}
                 </form>
-                <Link to = {'/register'}>Cadastre-se</Link>
+                <Link to = {'/register'} className='formSecondButton'>Cadastre-se</Link>
             </div>
 
             <Outlet />
